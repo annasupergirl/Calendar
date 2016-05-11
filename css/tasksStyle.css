@@ -1,0 +1,55 @@
+.none {
+	display: none !important;
+}
+
+body {
+	background: #ADD8E6;
+	font-family: sans-serif;
+}
+
+li {
+	list-style-type: none;
+	position: relative;
+}
+
+.task {
+	background: #A4D3EE;
+	border: 1px solid rgba(0, 89, 181, 0.82);
+	width: 600px;
+	margin: 0 0 5px;
+	box-shadow: 2px 2px 5px -1px rgb(0, 81, 202);
+	padding: 3px 5px;
+}
+
+.add {
+	margin: 0 5px 5px 0;
+	width: 300px;
+	border: 1px dashed rgba(0, 89, 181, 0.82);
+	padding: 5px;
+}
+
+.add__btn, {
+	display: block;
+	margin: 0 0 5px 0;
+	padding: 5px;
+	width: 94%;
+	border: 1px solid rgba(0, 89, 181, 0.82);
+}
+
+.add__btn {
+	box-sizing: content-box;
+	color: #FFF;
+	text-transform: uppercase;
+	background: #007DDC;
+}
+
+.add__btn:disabled {
+	background: #B9D3EE;
+	color: #999;
+}
+
+.deleteBtn {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
