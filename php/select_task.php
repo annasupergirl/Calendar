@@ -1,8 +1,8 @@
 <?php
 require_once('DB.php');
-$resultSelect_task = DB::query("select tasks from tasks WHERE day=? AND month=? AND year=?", array("iii"), array($_COOKIE['day'], $_COOKIE['month'], $_COOKIE['year']));
+$resultSelect_task = DB::query("select task from tasks WHERE day=? AND month=? AND year=?", array("sss"), array($_GET['day'], $_GET['month'], $_GET['year']));
 if(count($resultSelect_task) > 0) {
-	$res = unserialize($resultSelect_task[0]["tasks"]);
+	$res = $resultSelect_task;
 	echo json_encode($res);
 } else {
 	echo false;

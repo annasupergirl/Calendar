@@ -191,8 +191,7 @@ var AllDays = React.createClass({
 var AppForCalendar = React.createClass({
 	render: function() {
 		var data = this.props.data,
-		    month = reactCookie.load('month'),
-		    year = reactCookie.load('year'),
+		    params = getParams(window.location.search),
 		    daysTemplate;
 
 		daysTemplate = data.map(function(item, index) {
@@ -201,7 +200,7 @@ var AppForCalendar = React.createClass({
 			);
 		});
 
-		if(month == false && year == false) {
+		if(params['month'] == false && params['year'] == false) {
 			return (
 				<table id='daysTable' onClick={this.onClickTable}>
 					<thead>
@@ -220,7 +219,7 @@ var AppForCalendar = React.createClass({
 							{daysTemplate}
 						</tr>
 					</thead>
-					<AllDays year_prop={year} month_prop={month}/>
+					<AllDays year_prop={params['year']} month_prop={params['month']}/>
 				</table>
 			);
 		}
@@ -232,10 +231,7 @@ var AppForCalendar = React.createClass({
 		if (target.tagName != 'TD' || (target.tagName === 'TD' && target.innerHTML.length === 0) || target.className == "last_td") {
 			return;
 		} else {
-			reactCookie.save('day', target.innerHTML);
-			reactCookie.save('month', month);
-			reactCookie.save('year', year);
-			window.location = "tasks.html";
+			window.location = "tasks.html?day=" + target.innerHTML + "&month=" + month + "&year=" + year;
 		}
 	}
 });
